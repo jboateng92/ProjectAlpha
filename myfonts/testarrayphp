@@ -1,0 +1,21 @@
+<?php
+
+$array = [1,2,3,[4,5,6],[7,[8,9]]];
+
+function flattenArray($array) {
+function flatten($array) {
+    $return = array();
+    while(count($array)) {
+        $value = array_shift($array);
+        if(is_array($value))
+            foreach($value as $sub)
+                $array[] = $sub;
+        else
+            $return[] = $value;
+    }
+    return $return;
+}
+
+}
+print flattenArray($array);
+?>
